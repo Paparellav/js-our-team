@@ -37,7 +37,6 @@ const team = [
 // MILESTONE 1:
 // stampare su console le informazioni di nome, ruolo e la stringa della foto
 let userInfos = "";
-const domElement = document.querySelector("p");
 
 for (let i = 0; i < team.length; i++) {
     userInfos = team[i];
