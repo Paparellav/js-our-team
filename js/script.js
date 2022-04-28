@@ -40,12 +40,16 @@ let userInfos = "";
 
 for (let i = 0; i < team.length; i++) {
     userInfos = team[i];
-    console.log(userInfos.name, userInfos.role, userInfos.image);
+    // console.log(userInfos.name, userInfos.role, userInfos.image);
     
     // MILESTONE 2:
     // stampare le stesse informazioni su DOM sottoforma di stringhe
-    const domElement = document.querySelector("p");
-    domElement.innerHTML += `${userInfos.name} <hr> ${userInfos.role} <hr> ${userInfos.image} <hr>`;
+    const domElement = document.querySelector("div");
+    
+    // BONUS 1:
+    // trasformare la stringa foto in una immagine effettiva
+    domElement.innerHTML += `Name: ${userInfos.name}<br><br>Job: ${userInfos.role}<br><br><img src = "img/${userInfos.image}"><br><br>`;
+
 }
 
 
