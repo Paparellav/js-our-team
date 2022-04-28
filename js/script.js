@@ -37,6 +37,7 @@ const team = [
 // MILESTONE 1:
 // stampare su console le informazioni di nome, ruolo e la stringa della foto
 let userInfos = "";
+const domElement = document.querySelector("p");
 
 for (let i = 0; i < team.length; i++) {
     userInfos = team[i];
@@ -44,11 +45,8 @@ for (let i = 0; i < team.length; i++) {
     
     // MILESTONE 2:
     // stampare le stesse informazioni su DOM sottoforma di stringhe
-    const userName = userInfos.name;
-    const userRole = userInfos.role;
-    const userImage = userInfos.image;
     const domElement = document.querySelector("p");
-    domElement.innerHTML = `${userName} ${userRole} ${userImage}`;
+    domElement.innerHTML += `${userInfos.name} <hr> ${userInfos.role} <hr> ${userInfos.image} <hr>`;
 }
 
 
