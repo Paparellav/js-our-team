@@ -32,18 +32,50 @@ const team = [
       role: 'Graphic Designer',
       image: 'barbara-ramos-graphic-designer.jpg',
     },
-  ];
+];
 
-// MILESTONE 1:
-// stampare su console le informazioni di nome, ruolo e la stringa della foto
 let userInfos = "";
 const teamContainer = document.querySelector(".team-container");
-console.log(teamContainer);
+// console.log(teamContainer);
 
 for (let i = 0; i < team.length; i++) {
     userInfos = team[i];
     // console.log(userInfos.name, userInfos.role, userInfos.image);
+
+    generateCard(); // -> Funzione che crea la card e l'appende al team-container
+}
+
+//BONUS 3.
+const submitBtn = document.getElementById("addMemberButton");
+submitBtn.addEventListener('click', function (){
     
+    const userName = document.getElementById("name").value;
+    const userRole = document.getElementById("role").value;
+    const userImage = document.getElementById("image").value;
+    
+    const userObject = {
+        name: userName,
+        role: userRole,
+        image: userImage,
+    };
+
+    console.log(userObject);
+    team.push(userObject);
+
+    teamContainer.innerHTML = "";
+
+    for (let i = 0; i < team.length; i++) {
+        userInfos = team[i];
+
+        generateCard();
+    }
+    
+});
+
+//FUNCTION 
+function generateCard () {
+    // BONUS 2:
+    // organizzare i singoli membri in card/schede
     
     // creare un div al quale dare la classe team-card
     const teamCard = document.createElement("div");
@@ -58,23 +90,15 @@ for (let i = 0; i < team.length; i++) {
     // creare un div al quale dare la classe card-text
     const cardTxt = document.createElement("div");
     cardTxt.classList.add("card-text");
+    teamCard.append(cardTxt);
     //creare un h3 al quale appendere ${userInfos.name}
     const title = document.createElement("h3");
     title.innerHTML = `${userInfos.name}`;
     //creare un p al quale appendere ${userInfos.role}
     const p = document.createElement("p");
     p.innerHTML = `${userInfos.role}`;
-    
     cardTxt.append(title, p);
+    
+    
     teamContainer.append(teamCard);
-    teamContainer.append(cardTxt);
-    teamCard.append(cardTxt)
-
-
-}
-// BONUS 2:
-// organizzare i singoli membri in card/schede
-
-
-// BONUS 3:
-// Utilizzare gli input presenti nella pagina per permettere all'utente di aggiungere nuovi membri del team: cliccando sul pulsante "add" viene creato un nuovo oggetto, il quale viene inserito nell'array iniziale e viene stampata una nuova card con tutte le informazioni inserite dall'utente.
+}   
